@@ -1,0 +1,649 @@
+{
+  "id": "a3413555-e17c-48a0-81ac-2abc72bcc383",
+  "revision": 0,
+  "last_node_id": 10,
+  "last_link_id": 9,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "OnnxDetectionModelLoader",
+      "pos": [
+        1303.8404112732023,
+        1000.3993178043474
+      ],
+      "size": [
+        370.3601847372395,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "POSEMODEL",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-WanAnimatePreprocess",
+        "ver": "2fcbcae7eec637fdc712fdec18e6266feb8ba3a7",
+        "Node name for S&R": "OnnxDetectionModelLoader",
+        "aux_id": "kijai/ComfyUI-WanAnimatePreprocess",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "vitpose_h_wholebody_model.onnx",
+        "yolov10m.onnx",
+        "CUDAExecutionProvider"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 2,
+      "type": "DrawViTPose",
+      "pos": [
+        1689.0075439521988,
+        1001.080853311867
+      ],
+      "size": [
+        270,
+        178
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pose_data",
+          "type": "POSEDATA",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "pose_images",
+          "type": "IMAGE",
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-WanAnimatePreprocess",
+        "ver": "1a35b81a418bbba093356ad19b19bf2a76a24f4e",
+        "Node name for S&R": "DrawViTPose"
+      },
+      "widgets_values": [
+        720,
+        1280,
+        16,
+        -1,
+        -1,
+        "True"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "PoseAndFaceDetection",
+      "pos": [
+        1303.9241395257632,
+        1139.2387094991327
+      ],
+      "size": [
+        313.125,
+        186
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "POSEMODEL",
+          "link": 3
+        },
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 4
+        },
+        {
+          "name": "retarget_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "pose_data",
+          "type": "POSEDATA",
+          "links": [
+            1,
+            5,
+            7
+          ]
+        },
+        {
+          "name": "face_images",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "key_frame_body_points",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "bboxes",
+          "type": "BBOX",
+          "links": null
+        },
+        {
+          "name": "face_bboxes",
+          "type": "BBOX,",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-WanAnimatePreprocess",
+        "ver": "2fcbcae7eec637fdc712fdec18e6266feb8ba3a7",
+        "Node name for S&R": "PoseAndFaceDetection",
+        "aux_id": "kijai/ComfyUI-WanAnimatePreprocess",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "width": true,
+            "height": true
+          },
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        720,
+        1280
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 7,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1975.5540633549488,
+        999.8853100998517
+      ],
+      "size": [
+        343.6813986939137,
+        923.4335976780688
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 6
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "0a75c7958fe320efcb052f1d9f8451fd20c730a8",
+        "Node name for S&R": "VHS_VideoCombine",
+        "aux_id": "Kosinkadink/ComfyUI-VideoHelperSuite",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": {
+        "frame_rate": 16,
+        "loop_count": 0,
+        "filename_prefix": "vitpose",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": false,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "vitpose_00015.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 16,
+            "workflow": "vitpose_00015.png",
+            "fullpath": "D:\\ComfyUI_windows_portable\\ComfyUI\\output\\vitpose_00015.mp4"
+          }
+        }
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 9,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        2327.610258850725,
+        998.9714988892509
+      ],
+      "size": [
+        343.6813986939137,
+        923.4335976780688
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 8
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "0a75c7958fe320efcb052f1d9f8451fd20c730a8",
+        "Node name for S&R": "VHS_VideoCombine",
+        "aux_id": "Kosinkadink/ComfyUI-VideoHelperSuite",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": {
+        "frame_rate": 16,
+        "loop_count": 0,
+        "filename_prefix": "vitpose",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": false,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "vitpose_00015.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 16,
+            "workflow": "vitpose_00015.png",
+            "fullpath": "D:\\ComfyUI_windows_portable\\ComfyUI\\output\\vitpose_00015.mp4"
+          }
+        }
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 6,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        899.8789036417043,
+        1004.6331112541623
+      ],
+      "size": [
+        368.982535157264,
+        943.9689736318157
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            4
+          ]
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": []
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "8550981384301e9bc5bfea83e5c2c75258102593",
+        "Node name for S&R": "VHS_LoadVideo",
+        "aux_id": "Kosinkadink/ComfyUI-VideoHelperSuite",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.5.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": {
+        "video": "Без названия (21).mp4",
+        "force_rate": 16,
+        "custom_width": 720,
+        "custom_height": 1280,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "format": "Wan",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "Без названия (21).mp4",
+            "type": "input",
+            "format": "video/mp4",
+            "force_rate": 16,
+            "custom_width": 720,
+            "custom_height": 1280,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1
+          }
+        }
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 8,
+      "type": "TSPoseDataSmoother",
+      "pos": [
+        1689.7506516978146,
+        1226.4699592282134
+      ],
+      "size": [
+        271.1328125,
+        198
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pose_data",
+          "type": "POSEDATA",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            8
+          ]
+        },
+        {
+          "name": "pose_data",
+          "type": "POSEDATA",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "teskor-hub/comfyui-teskors-utils",
+        "ver": "fc2e6467ab346ae8c92b5d311246009f18489b60",
+        "Node name for S&R": "TSPoseDataSmoother"
+      },
+      "widgets_values": [
+        true,
+        0.7,
+        12,
+        4,
+        0.35,
+        0.6
+      ]
+    },
+    {
+      "id": 5,
+      "type": "TSSavePoseDataAsPickle",
+      "pos": [
+        1304.2517450362282,
+        1361.764823613752
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pose_data",
+          "type": "POSEDATA",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "saved_path",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "teskor-hub/comfyui-teskors-utils",
+        "ver": "cbbfd9e1bceb299dbf5004fd0f073f64424469b3",
+        "Node name for S&R": "TSSavePoseDataAsPickle"
+      },
+      "widgets_values": [
+        "not_smoothed_pose"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "TSSavePoseDataAsPickle",
+      "pos": [
+        1694.382032229848,
+        1468.112004774594
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pose_data",
+          "type": "POSEDATA",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "saved_path",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "teskor-hub/comfyui-teskors-utils",
+        "ver": "cbbfd9e1bceb299dbf5004fd0f073f64424469b3",
+        "Node name for S&R": "TSSavePoseDataAsPickle"
+      },
+      "widgets_values": [
+        "smoothed_pose"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      4,
+      0,
+      2,
+      0,
+      "POSEDATA"
+    ],
+    [
+      3,
+      1,
+      0,
+      4,
+      0,
+      "POSEMODEL"
+    ],
+    [
+      4,
+      6,
+      0,
+      4,
+      1,
+      "IMAGE"
+    ],
+    [
+      5,
+      4,
+      0,
+      5,
+      0,
+      "POSEDATA"
+    ],
+    [
+      6,
+      2,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      7,
+      4,
+      0,
+      8,
+      0,
+      "POSEDATA"
+    ],
+    [
+      8,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      9,
+      8,
+      1,
+      10,
+      0,
+      "POSEDATA"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "workflowRendererVersion": "LG",
+    "ds": {
+      "scale": 0.6945101947704954,
+      "offset": [
+        -182.65607224442527,
+        -746.6094078883132
+      ]
+    },
+    "frontendVersion": "1.34.9",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
