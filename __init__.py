@@ -8,25 +8,25 @@ from .nodes.video_combine_metadata import TSVideoCombineNoMetadata
 
 
 NODE_CLASS_MAPPINGS = {
-    "TSSavePoseDataAsPickle": TSSavePoseDataAsPickle,
-    "TSLoadPoseDataPickle": TSLoadPoseDataPickle,
-    "TSPoseDataSmoother": KPSSmoothPoseDataAndRender,
-    "TSLoadVideoBatchListFromDir": LoadVideoBatchListFromDir,
-    "TSRenameFilesInDir": RenameFilesInDir,
-    "TSColorMatch": TSColorMatchSequentialBias,
-    "TSPreviewImageNoMetadata": PreviewImageNoMetadata,
-    "TSVideoCombineNoMetadata": TSVideoCombineNoMetadata,
+    "CloserToolsSavePoseData": TSSavePoseDataAsPickle,
+    "CloserToolsLoadPoseData": TSLoadPoseDataPickle,
+    "CloserToolsPoseSmoother": KPSSmoothPoseDataAndRender,
+    "CloserToolsLoadVideoBatch": LoadVideoBatchListFromDir,
+    "CloserToolsRenameFiles": RenameFilesInDir,
+    "CloserToolsColorMatch": TSColorMatchSequentialBias,
+    "CloserToolsPreviewImage": PreviewImageNoMetadata,
+    "CloserToolsVideoCombine": TSVideoCombineNoMetadata,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "TSSavePoseDataAsPickle": "CloserTools Save Pose Data (PKL)",
-    "TSLoadPoseDataPickle": "CloserTools Load Pose Data (PKL)",
-    "TSPoseDataSmoother": "CloserTools Pose Data Smoother",
-    "TSLoadVideoBatchListFromDir": "CloserTools Load Video Batch List From Dir",
-    "TSRenameFilesInDir": "CloserTools Rename Files In Dir",
-    "TSColorMatch": "CloserTools Color Match",
-    "TSPreviewImageNoMetadata": "CloserTools Preview Image No Metadata",
-    "TSVideoCombineNoMetadata": "CloserTools Video Combine No Metadata",
+    "CloserToolsSavePoseData": "CloserTools Save Pose Data (PKL)",
+    "CloserToolsLoadPoseData": "CloserTools Load Pose Data (PKL)",
+    "CloserToolsPoseSmoother": "CloserTools Pose Data Smoother",
+    "CloserToolsLoadVideoBatch": "CloserTools Load Video Batch List From Dir",
+    "CloserToolsRenameFiles": "CloserTools Rename Files In Dir",
+    "CloserToolsColorMatch": "CloserTools Color Match",
+    "CloserToolsPreviewImage": "CloserTools Preview Image No Metadata",
+    "CloserToolsVideoCombine": "CloserTools Video Combine No Metadata",
 }
 
 WEB_DIRECTORY = "web"
