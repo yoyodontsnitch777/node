@@ -293,7 +293,7 @@ class LoadVideoBatchListFromDir:
     OUTPUT_IS_LIST = (True, True, False)
 
     FUNCTION = "load_videos"
-    CATEGORY = "video"
+    CATEGORY = "CloserTools/Video"
 
     @classmethod
     def IS_CHANGED(cls, **kwargs):

@@ -111,7 +111,7 @@ class RenameFilesInDir:
     RETURN_TYPES = ("INT",)
     RETURN_NAMES = ("COUNT",)
     FUNCTION = "run"
-    CATEGORY = "InspirePack/files"
+    CATEGORY = "CloserTools/Files"
 
     @classmethod
     def IS_CHANGED(cls, **kwargs):

@@ -19,14 +19,14 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "TSSavePoseDataAsPickle": "Save Pose Data (PKL)",
-    "TSLoadPoseDataPickle": "Load Pose Data (PKL)",
-    "TSPoseDataSmoother": "Pose Data Smoother",
-    "TSLoadVideoBatchListFromDir": "Load Video Batch List From Dir",
-    "TSRenameFilesInDir": "Rename Files In Dir",
-    "TSColorMatch": "Color Match",
-    "TSPreviewImageNoMetadata": "Preview Image No Metadata",
-    "TSVideoCombineNoMetadata": "Video Combine No Metadata",
+    "TSSavePoseDataAsPickle": "CloserTools Save Pose Data (PKL)",
+    "TSLoadPoseDataPickle": "CloserTools Load Pose Data (PKL)",
+    "TSPoseDataSmoother": "CloserTools Pose Data Smoother",
+    "TSLoadVideoBatchListFromDir": "CloserTools Load Video Batch List From Dir",
+    "TSRenameFilesInDir": "CloserTools Rename Files In Dir",
+    "TSColorMatch": "CloserTools Color Match",
+    "TSPreviewImageNoMetadata": "CloserTools Preview Image No Metadata",
+    "TSVideoCombineNoMetadata": "CloserTools Video Combine No Metadata",
 }
 
 WEB_DIRECTORY = "web"

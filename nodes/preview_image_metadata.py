@@ -60,7 +60,7 @@ class PreviewImageNoMetadata:
     RETURN_TYPES = ("IMAGE",)
     FUNCTION = "preview"
     OUTPUT_NODE = True
-    CATEGORY = "image"
+    CATEGORY = "CloserTools/Image"
 
     def preview(self, image):
 
